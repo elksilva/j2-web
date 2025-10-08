@@ -1,0 +1,15 @@
+header {
+  @apply bg-white shadow-md sticky top-0 z-50;
+
+  .header__logo {
+    @apply text-2xl font-bold text-primario;
+  }
+
+  nav a {
+    @apply text-gray-700 hover:text-primario font-medium transition;
+  }
+
+  .header__contacto {
+    @apply bg-primario text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium;
+  }
+}

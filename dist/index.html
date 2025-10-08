@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta básico -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J2 Software Pos Multisucursal - Gestión de Sucursales y Ventas</title>
+  <meta name="description" content="J2 Multisucursal te permite gestionar tus sucursales, inventario y ventas de forma fácil y eficiente.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- CSS compilado por Gulp -->
+  <link rel="stylesheet" href="facturacion.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Meta SEO -->
+  <meta name="author" content="J2 Multisucursal">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="J2 Multisucursal">
+  <meta property="og:description" content="Gestiona tus sucursales, inventario y ventas desde un solo lugar.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=J2+Multisucursal">
+</head>
+
+<body class="font-sans bg-gray-50">
+  <!-- Hero / Sección principal -->
+  <header class="flex justify-between items-center p-4 bg-white shadow-md" data-aos="fade-right">
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <img src="./assets/images/logocolor.png" alt="Logo J2" class="h-16 md:h-20">
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Botón menú hamburguesa -->
+    <button id="btnMenu" class="md:hidden text-3xl text-gray-700">
+      ☰
+    </button>
+
+    <!-- Navegación -->
+      <nav id="menu" class="hidden md:flex flex-col md:flex-row md:items-center absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none border-t md:border-0 transition-all duration-300 ease-in-out">
+        <ul class="flex flex-col md:flex-row w-full md:w-auto text-center md:text-left">
+          <li class="border-b border-gray-200 md:border-none">
+            <a href="#home" class="block py-3 px-6 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primario transition">🏠 Inicio</a>
+          </li>
+          <li class="border-b border-gray-200 md:border-none">
+            <a href="#profesionales" class="block py-3 px-6 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primario transition">👨‍💼Servicios</a>
+          </li>
+          <li class="border-b border-gray-200 md:border-none">
+            <a href="#registro" class="block py-3 px-6 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primario transition">📝 Registro</a>
+          </li>
+          <li>
+            <a href="#contact" class="block py-3 px-6 bg-primario text-white rounded-md hover:bg-indigo-700 transition mx-4 my-3 md:my-0 md:ml-6 shadow-md hover:shadow-lg">📞 Contacto</a>
+          </li>
+        </ul>
+      </nav>
+
+    <!-- Menú móvil -->
+    <nav id="menuMovil" class="absolute top-16 right-4 bg-white shadow-lg rounded-xl border border-gray-200 p-4 w-56 opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out md:hidden">
+      <ul class="flex flex-col gap-3 text-gray-700">
+        <li class="border-b border-gray-200 pb-2 flex items-center gap-2">🏠 <a href="#" class="hover:text-indigo-600">Inicio</a></li>
+        <li class="border-b border-gray-200 pb-2 flex items-center gap-2">👨‍⚕️ <a href="#" class="hover:text-indigo-600">Servicios</a></li>
+        <li class="border-b border-gray-200 pb-2 flex items-center gap-2">📝 <a href="#" class="hover:text-indigo-600">Registro</a></li>
+        <li class="pt-2 flex items-center gap-2">📞 
+          <a href="#" class="text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-1.5 rounded-lg transition">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="bg-gray-50">
+    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center py-20 px-6 md:px-12 gap-10 md:gap-16 xl:gap-20">
+
+      <!-- Texto -->
+      <div class="md:w-1/2 text-center md:text-left space-y-6">
+        <h1 class="text-4xl md:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-tight md:leading-snug">
+          La Solución <span class="text-primario">para tu Negocio</span>
+        </h1>
+        <p class="text-gray-700 text-lg md:text-xl xl:text-2xl leading-relaxed max-w-xl">
+          Administra tus sucursales, inventario y ventas desde un solo lugar con 
+          <span class="font-semibold text-primario">J2 Software Pos Multisucursal</span>.
+        </p>
+        <a href="#contact" 
+          class="inline-block bg-primario text-white px-10 py-4 rounded-md hover:bg-indigo-700 transition font-medium shadow-md hover:shadow-lg text-lg xl:text-xl">
+          🚀 Solicita una Demo
+        </a>
+      </div>
+
+      <!-- Imagen -->
+      <div class="md:w-1/2 flex justify-center md:justify-end">
+        <img src="assets/images/mockupj3.png" 
+            alt="Dashboard J2" 
+            class="rounded-xl w-full max-w-sm md:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl object-contain transform hover:scale-105 transition duration-300">
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Beneficios -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container mx-auto text-center px-6">
+      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Beneficios del Software
+      </h2>
+      <p data-aos="fade-up" data-aos-delay="100" class="text-gray-600 mb-12 max-w-2xl mx-auto">
+        Descubre cómo <span class="text-primario font-semibold">J2 Software Pos Multisucursal</span> impulsa la eficiencia, el control y el crecimiento de tu negocio.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- 1 -->
+        <div data-aos="fade-up" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">📊 Gestión de Ventas</h3>
+          <p class="text-gray-700">Control total de tus ventas en todas las sucursales con reportes en tiempo real.</p>
+        </div>
+
+        <!-- 2 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">📦 Inventario Centralizado</h3>
+          <p class="text-gray-700">Administra el inventario de todas tus sucursales desde un solo panel con sincronización automática.</p>
+        </div>
+
+        <!-- 3 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">🏢 Control de Sucursales</h3>
+          <p class="text-gray-700">Monitorea el rendimiento individual o global de cada sucursal de manera sencilla.</p>
+        </div>
+
+        <!-- 4 -->
+        <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">🔄 Traslado de Productos</h3>
+          <p class="text-gray-700">Realiza movimientos de inventario entre sucursales en tiempo real y con trazabilidad total.</p>
+        </div>
+
+        <!-- 5 -->
+        <div data-aos="fade-up" data-aos-delay="400" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">📬 Solicitudes de Inventario</h3>
+          <p class="text-gray-700">Permite que cada sucursal solicite productos directamente a la central de forma controlada y rápida.</p>
+        </div>
+
+        <!-- 6 -->
+        <div data-aos="fade-up" data-aos-delay="500" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">👥 Control de Usuarios y Roles</h3>
+          <p class="text-gray-700">Define permisos por usuario y sucursal para mantener la seguridad y el control del sistema.</p>
+        </div>
+
+        <!-- 7 -->
+        <div data-aos="fade-up" data-aos-delay="600" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">💳 Facturación Electrónica</h3>
+          <p class="text-gray-700">Cumple con la normativa DIAN y automatiza la emisión de facturas electrónicas sin complicaciones.</p>
+        </div>
+
+        <!-- 8 -->
+        <div data-aos="fade-up" data-aos-delay="700" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">📈 Reportes Consolidados</h3>
+          <p class="text-gray-700">Obtén reportes detallados por sucursal o generales para tomar decisiones estratégicas.</p>
+        </div>
+
+        <!-- 9 -->
+        <div data-aos="fade-up" data-aos-delay="800" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">☁️ Acceso en la Nube</h3>
+          <p class="text-gray-700">Consulta información y gestiona tus sucursales desde cualquier dispositivo y lugar.</p>
+        </div>
+
+        <!-- 10 -->
+        <div data-aos="fade-up" data-aos-delay="900" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">🔔 Alertas y Notificaciones</h3>
+          <p class="text-gray-700">Recibe alertas automáticas sobre stock bajo, ventas destacadas o movimientos importantes en cualquier sucursal.</p>
+        </div>
+
+        <!-- 11 -->
+        <div data-aos="fade-up" data-aos-delay="1000" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">🛠️ Configuración Personalizada</h3>
+          <p class="text-gray-700">Adapta el sistema a las necesidades de cada sucursal, con ajustes de precios, promociones y categorías específicas.</p>
+        </div>
+
+        <!-- 12 -->
+        <div data-aos="fade-up" data-aos-delay="1100" class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md hover:border hover:border-primario hover:bg-indigo-50 transition transform hover:-translate-y-1">
+          <h3 class="text-xl font-semibold text-primario mb-3">📱 Integración Móvil</h3>
+          <p class="text-gray-700">Gestiona ventas, inventario y solicitudes desde la app móvil, optimizando la supervisión de tus sucursales en tiempo real.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Precios Premium Actualizada -->
+  <section id="pricing" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6 text-center max-w-3xl">
+      <!-- Título -->
+      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Plan Único <span class="uppercase text-primario">J2 Software Pos Multisucursal</span>
+      </h2>
+      <!-- Descripción clara de pagos -->
+      <p data-aos="fade-up" data-aos-delay="100" class="text-gray-600 mb-12 text-sm md:text-base">
+        Accede a todas las funcionalidades de nuestro sistema con un plan simple y transparente:
+      </p>
+
+      <div data-aos="fade-up" class="relative bg-white rounded-2xl shadow-lg p-6 md:p-10 border border-gray-200">
+        
+        <!-- Etiqueta Recomendado -->
+        <span class="absolute top-4 right-4 bg-indigo-600 text-white text-xs md:text-sm font-semibold px-3 py-1 rounded-full">
+          Recomendado
+        </span>
+
+        <!-- Precio con ícono -->
+        <div class="flex flex-col md:flex-row items-center justify-center mb-6 md:mb-8 space-y-2 md:space-y-0 md:space-x-4">
+          <span class="text-4xl md:text-5xl">🏢</span>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
+            80.000 <span class="text-base md:text-lg font-medium">/ mes por sucursal</span>
+          </h3>
+        </div>
+
+        <!-- Explicación de pagos -->
+        <p class="text-gray-700 mb-6 text-sm md:text-base">
+          💰 <strong>Pago inicial por implementación:</strong> $120.000 por sucursal<br>
+          📅 <strong>Mensualidad:</strong> $80.000 por sucursal a partir del segundo mes
+        </p>
+
+        <p class="text-gray-600 mb-6 text-sm md:text-base">Incluye todas las funcionalidades de J2 Software Pos Multisucursal para cada sede.</p>
+
+        <!-- Beneficios en 2 columnas con hover -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-6">
+          <div class="flex items-center p-2 rounded hover:bg-gray-50 transition"><span class="mr-2 text-green-500">✔️</span> Acceso en la nube desde cualquier dispositivo</div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-50 transition"><span class="mr-2 text-green-500">✔️</span> Reportes consolidados por sucursal</div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-50 transition"><span class="mr-2 text-green-500">✔️</span> Traslado de productos entre sucursales</div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-50 transition"><span class="mr-2 text-green-500">✔️</span> Control de usuarios y roles por sucursal</div>
+        </div>
+
+        <!-- Botón de acción -->
+        <a href="#contact" class="inline-block bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition text-sm md:text-base">
+          Adquiere tu plan ahora
+        </a>
+
+        <!-- Certificado Opcional -->
+        <p class="mt-6 text-gray-500 text-sm md:text-base">
+          🧾 Certificado digital de facturación electrónica (opcional): $180.000 / año – facturación ilimitada durante 12 meses
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Contacto -->
+  <section id="contacto" class="py-10 sm:py-13 bg-gray-50 overflow-x-hidden">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <!-- Columna izquierda: Imagen -->
+        <div class="hidden sm:block md:col-span-7 min-h-[550px]" data-aos="fade-right">
+          <img src="./assets/images/contacto1.png" 
+              alt="Asesoría J2 Software Pos" 
+              class="rounded-2xl w-full h-full object-cover">
+        </div>
+
+        <!-- Columna derecha: Formulario -->
+        <div class="md:col-span-5" data-aos="fade-left">
+          <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              ¿Tienes dudas?
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base mb-8 text-center">
+              Te asesoramos sin costo. Déjanos tus datos y nos pondremos en contacto contigo rápidamente.
+            </p>
+            <form action="#" method="POST" class="space-y-6">
+
+              <!-- Nombre -->
+              <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+                <span class="text-indigo-600 text-lg mr-3">👤</span>
+                <input type="text" name="nombre" placeholder="Tu nombre" required
+                      class="w-full focus:outline-none text-sm md:text-base">
+              </div>
+
+              <!-- Correo -->
+              <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+                <span class="text-indigo-600 text-lg mr-3">📧</span>
+                <input type="email" name="correo" placeholder="Tu correo" required
+                      class="w-full focus:outline-none text-sm md:text-base">
+              </div>
+
+              <!-- Teléfono -->
+              <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+                <span class="text-indigo-600 text-lg mr-3">📞</span>
+                <input type="tel" name="telefono" placeholder="Tu teléfono" required
+                      class="w-full focus:outline-none text-sm md:text-base">
+              </div>
+
+              <!-- Mensaje -->
+              <div class="flex items-start border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+                <span class="text-indigo-600 text-lg mr-3 mt-2">💬</span>
+                <textarea name="mensaje" placeholder="Escribe tu mensaje" rows="5" required
+                          class="w-full focus:outline-none text-sm md:text-base resize-none"></textarea>
+              </div>
+
+              <!-- Botón CTA -->
+              <div class="text-center">
+                <button type="submit"
+                        class="bg-indigo-600 text-white font-bold py-4 px-10 rounded-full hover:bg-indigo-700 transition text-base md:text-lg shadow-lg">
+                  Enviar mensaje
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-6">
+    <div class="container mx-auto text-center">
+      <p class="text-sm">© 2025 J2 Software Pos Multisucursal. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Librería de animaciones AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Script principal -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
