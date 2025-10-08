@@ -30,10 +30,12 @@ function scripts() {
   return gulp.src(paths.js).pipe(gulp.dest("dist/js"));
 }
 
-// 🔹 Copiar imágenes a /dist/assets/images
+// 🔹 Copiar imágenes a /dist/assets/images (manteniendo formato binario)
 function images() {
-  return gulp.src(paths.images).pipe(gulp.dest("dist/assets/images"));
+  return gulp.src('src/assets/images/**/*', { encoding: false })
+    .pipe(gulp.dest('dist/assets/images'));
 }
+
 
 // 🔹 Copiar archivos HTML a /dist
 function html() {
