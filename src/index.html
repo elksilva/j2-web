@@ -24,6 +24,12 @@
   <meta property="og:description" content="Gestiona tus sucursales, inventario y ventas desde un solo lugar.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=J2+Multisucursal">
+  <style>
+  /* Oculta el mensaje de error visual predeterminado de EmailJS */
+    iframe[src*="emailjs"] {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body class="font-sans bg-gray-50">
@@ -247,69 +253,67 @@
     </div>
   </section>
 
-  <!-- Sección de Contacto -->
-  <section id="contacto" class="py-10 sm:py-13 bg-gray-50 overflow-x-hidden">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-        <!-- Columna izquierda: Imagen -->
-        <div class="hidden sm:block md:col-span-7 min-h-[550px]" data-aos="fade-right">
-          <img src="assets/images/contacto1.png" 
-              alt="Asesoría J2 Software Pos" 
-              class="rounded-2xl w-full h-full object-cover">
-        </div>
+<!-- Sección de Contacto -->
+<section id="contacto" class="py-10 sm:py-13 bg-gray-50 overflow-x-hidden relative">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+      <!-- Columna izquierda: Imagen -->
+      <div class="hidden sm:block md:col-span-7 min-h-[550px]" data-aos="fade-right">
+        <img src="assets/images/contacto1.png" 
+             alt="Asesoría J2 Software Pos" 
+             class="rounded-2xl w-full h-full object-cover">
+      </div>
 
-        <!-- Columna derecha: Formulario -->
-        <div class="md:col-span-5" data-aos="fade-left">
-          <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-              ¿Tienes dudas?
-            </h2>
-            <p class="text-gray-600 text-sm md:text-base mb-8 text-center">
-              Te asesoramos sin costo. Déjanos tus datos y nos pondremos en contacto contigo rápidamente.
-            </p>
-            <form action="#" method="POST" class="space-y-6">
+      <!-- Columna derecha: Formulario -->
+      <div class="md:col-span-5" data-aos="fade-left">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            ¿Tienes dudas?
+          </h2>
+          <p class="text-gray-600 text-sm md:text-base mb-8 text-center">
+            Te asesoramos sin costo. Déjanos tus datos y nos pondremos en contacto contigo rápidamente.
+          </p>
 
-              <!-- Nombre -->
-              <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
-                <span class="text-indigo-600 text-lg mr-3">👤</span>
-                <input type="text" name="nombre" placeholder="Tu nombre" required
-                      class="w-full focus:outline-none text-sm md:text-base">
-              </div>
+          <form id="contactForm" class="space-y-6">
+            <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+              <span class="text-indigo-600 text-lg mr-3">👤</span>
+              <input type="text" name="user_name" placeholder="Tu nombre" required
+                     class="w-full focus:outline-none text-sm md:text-base">
+            </div>
 
-              <!-- Correo -->
-              <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
-                <span class="text-indigo-600 text-lg mr-3">📧</span>
-                <input type="email" name="correo" placeholder="Tu correo" required
-                      class="w-full focus:outline-none text-sm md:text-base">
-              </div>
+            <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+              <span class="text-indigo-600 text-lg mr-3">📧</span>
+              <input type="email" name="user_email" placeholder="Tu correo" required
+                     class="w-full focus:outline-none text-sm md:text-base">
+            </div>
 
-              <!-- Teléfono -->
-              <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
-                <span class="text-indigo-600 text-lg mr-3">📞</span>
-                <input type="tel" name="telefono" placeholder="Tu teléfono" required
-                      class="w-full focus:outline-none text-sm md:text-base">
-              </div>
+            <div class="flex items-center border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+              <span class="text-indigo-600 text-lg mr-3">📞</span>
+              <input type="tel" name="user_phone" placeholder="Tu teléfono" required
+                     class="w-full focus:outline-none text-sm md:text-base">
+            </div>
 
-              <!-- Mensaje -->
-              <div class="flex items-start border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
-                <span class="text-indigo-600 text-lg mr-3 mt-2">💬</span>
-                <textarea name="mensaje" placeholder="Escribe tu mensaje" rows="5" required
-                          class="w-full focus:outline-none text-sm md:text-base resize-none"></textarea>
-              </div>
+            <div class="flex items-start border border-gray-300 rounded-xl p-3 md:p-4 hover:border-indigo-400 transition">
+              <span class="text-indigo-600 text-lg mr-3 mt-2">💬</span>
+              <textarea name="message" placeholder="Escribe tu mensaje" rows="5" required
+                        class="w-full focus:outline-none text-sm md:text-base resize-none"></textarea>
+            </div>
 
-              <!-- Botón CTA -->
-              <div class="text-center">
-                <button type="submit"
-                        class="bg-indigo-600 text-white font-bold py-4 px-10 rounded-full hover:bg-indigo-700 transition text-base md:text-lg shadow-lg">
-                  Enviar mensaje
-                </button>
-              </div>
-            </form>
-          </div>
+            <div class="text-center">
+              <button type="submit"
+                      class="bg-indigo-600 text-white font-bold py-4 px-10 rounded-full hover:bg-indigo-700 transition text-base md:text-lg shadow-lg">
+                Enviar mensaje
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- Contenedor de toasts -->
+  <div id="toast-container" class="fixed top-5 right-5 space-y-3 z-50"></div>
+</section>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-6">
@@ -322,5 +326,103 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Script principal -->
   <script type="module" src="js/main.js"></script>
+  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+  // ✅ Inicializa EmailJS con tu Public Key
+  (function() {
+    emailjs.init("xIY4Yl4QgWO1MwsW4");
+  })();
+
+  const form = document.getElementById("contactForm");
+
+  // 🔹 Crear contenedor de toasts (si no existe)
+  let toastContainer = document.getElementById("toast-container");
+  if (!toastContainer) {
+    toastContainer = document.createElement("div");
+    toastContainer.id = "toast-container";
+    toastContainer.className = "fixed top-5 right-5 space-y-3 z-50";
+    document.body.appendChild(toastContainer);
+  }
+
+  // 🔹 Función para mostrar notificaciones (toasts)
+  function showToast(message, type = "success") {
+    const colors = {
+      success: "bg-green-500",
+      error: "bg-red-500"
+    };
+
+    const toast = document.createElement("div");
+    toast.className = `${colors[type]} text-white px-6 py-3 rounded-xl shadow-lg animate-slide-in`;
+    toast.textContent = message;
+
+    toastContainer.appendChild(toast);
+
+    // Ocultar automáticamente
+    setTimeout(() => {
+      toast.classList.add("opacity-0", "translate-x-5");
+      setTimeout(() => toast.remove(), 500);
+    }, 4000);
+  }
+
+  // 🔹 Agregar estilos para animaciones y spinner
+  const style = document.createElement("style");
+  style.textContent = `
+    @keyframes slide-in {
+      from { opacity: 0; transform: translateX(2rem); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-slide-in {
+      animation: slide-in 0.4s ease-out;
+    }
+
+    /* Spinner */
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      animation: spin 0.8s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // 🔹 Envío del formulario
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const button = form.querySelector("button[type='submit']");
+    const originalHTML = button.innerHTML;
+
+    // Mostrar spinner mientras se envía
+    button.innerHTML = `<span class="spinner"></span> Enviando...`;
+    button.disabled = true;
+
+    emailjs.sendForm("service_68oymju", "template_x7sa9bf", this)
+      .then(() => {
+        showToast("✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        showToast("❌ Ocurrió un error al enviar el mensaje. Intenta nuevamente.", "error");
+      })
+      .finally(() => {
+        // Restaurar botón
+        button.innerHTML = originalHTML;
+        button.disabled = false;
+      });
+  });
+</script>
+
 </body>
 </html>

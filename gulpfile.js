@@ -54,7 +54,7 @@ function watchFiles() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.images = images;
-exports.html = html;
+exports.html = html; 
 exports.watch = gulp.series(styles, scripts, images, html, watchFiles);
 
 // 🔹 Tarea por defecto
