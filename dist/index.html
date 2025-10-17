@@ -30,6 +30,7 @@
       display: none !important;
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body class="font-sans bg-gray-50">
@@ -40,11 +41,7 @@
       <img src="assets/images/logocolor.png" alt="Logo J2" class="h-16 md:h-20">
     </div>
 
-    <!-- Redes sociales -->
-    <div class="hidden md:flex items-center gap-3">
-      <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="fab fa-instagram"></i></a>
-    </div>
+    
 
     <!-- Botón menú hamburguesa -->
     <button id="btnMenu" class="md:hidden text-3xl text-gray-700">
@@ -316,11 +313,22 @@
 </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-6">
-    <div class="container mx-auto text-center">
-      <p class="text-sm">© 2025 J2 Software Pos Multisucursal. Todos los derechos reservados.</p>
+  <footer class="bg-gray-900 text-gray-300 py-4">
+    <div class="container mx-auto flex flex-col items-center gap-4">
+      <!-- Texto -->
+      <p class="text-sm text-center">
+        © 2025 J2 Software Pos Multisucursal. Todos los derechos reservados.
+      </p>
+
+      <!-- Redes sociales -->
+      <div class="flex gap-3">
+        <a href="#" class="text-gray-300 hover:text-indigo-600"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-gray-300 hover:text-indigo-600"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </footer>
+
+
 
   <!-- Librería de animaciones AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -447,5 +455,14 @@
     });
   </script>
 
+  <!-- BOTÓN WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/573234433298?text=Hola!%20Quisiera%20más%20información%20sobre%20J2%20Software%20POS%20Multisucursal"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chatea con nosotros por WhatsApp">
+    <img src="/src/assets/images/whatsapp.svg" alt="WhatsApp" class="w-12 h-12">
+    <span class="whatsapp-tooltip">💬 Chatea con nosotros</span>
+  </a>
 </body>
 </html>

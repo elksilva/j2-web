@@ -864,6 +864,9 @@ video {
 .hidden{
   display: none;
 }
+.h-12{
+  height: 3rem;
+}
 .h-16{
   height: 4rem;
 }
@@ -878,6 +881,9 @@ video {
 }
 .min-h-\[550px\]{
   min-height: 550px;
+}
+.w-12{
+  width: 3rem;
 }
 .w-56{
   width: 14rem;
@@ -1112,10 +1118,6 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-6{
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
 .pb-2{
   padding-bottom: 0.5rem;
 }
@@ -1286,6 +1288,75 @@ video {
 .ease-in-out{
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* --- Animaciones previas --- */
+@keyframes whatsapp-glow {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+    50% {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.9);
+    }
+  }
+@keyframes whatsapp-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+/* --- Botón --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    border-radius: 50%;
+    padding: 0.8rem;
+    animation: whatsapp-entry 0.8s ease-out, whatsapp-float 3s ease-in-out infinite 0.8s, whatsapp-glow 2s ease-in-out infinite 0.8s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+.whatsapp-float:hover {
+    animation: whatsapp-shake 0.3s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.9);
+  }
+/* --- Tooltip --- */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px;
+    background: #1f2937; /* gris oscuro elegante */
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+/* Triángulo del tooltip */
+.whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    border-left: 6px solid #1f2937;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
 /* -------------------------------------------------------------
    ESTILOS PERSONALIZADOS
 ------------------------------------------------------------- */
