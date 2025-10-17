@@ -412,6 +412,14 @@
       const nombre = formData.get("user_name");
       const email = formData.get("user_email");
 
+      if (!nombre || !email) {
+        showToast("Por favor, completa todos los campos.", "error");
+        button.innerHTML = originalHTML;
+        button.disabled = false;
+        return;
+      }
+
+
       // 1️⃣ Enviar mensaje a ti (destinatario principal)
       emailjs.sendForm("service_68oymju", "template_9hpw6eg", this)
         .then(() => {
