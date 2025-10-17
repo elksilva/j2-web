@@ -327,102 +327,117 @@
   <!-- Script principal -->
   <script type="module" src="js/main.js"></script>
   
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-<script>
-  // ✅ Inicializa EmailJS con tu Public Key
-  (function() {
-    emailjs.init("xIY4Yl4QgWO1MwsW4");
-  })();
+  <script>
+    // ✅ Inicializa EmailJS con tu Public Key
+    (function() {
+      emailjs.init("xIY4Yl4QgWO1MwsW4");
+    })();
 
-  const form = document.getElementById("contactForm");
+    const form = document.getElementById("contactForm");
 
-  // 🔹 Crear contenedor de toasts (si no existe)
-  let toastContainer = document.getElementById("toast-container");
-  if (!toastContainer) {
-    toastContainer = document.createElement("div");
-    toastContainer.id = "toast-container";
-    toastContainer.className = "fixed top-5 right-5 space-y-3 z-50";
-    document.body.appendChild(toastContainer);
-  }
-
-  // 🔹 Función para mostrar notificaciones (toasts)
-  function showToast(message, type = "success") {
-    const colors = {
-      success: "bg-green-500",
-      error: "bg-red-500"
-    };
-
-    const toast = document.createElement("div");
-    toast.className = `${colors[type]} text-white px-6 py-3 rounded-xl shadow-lg animate-slide-in`;
-    toast.textContent = message;
-
-    toastContainer.appendChild(toast);
-
-    // Ocultar automáticamente
-    setTimeout(() => {
-      toast.classList.add("opacity-0", "translate-x-5");
-      setTimeout(() => toast.remove(), 500);
-    }, 4000);
-  }
-
-  // 🔹 Agregar estilos para animaciones y spinner
-  const style = document.createElement("style");
-  style.textContent = `
-    @keyframes slide-in {
-      from { opacity: 0; transform: translateX(2rem); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .animate-slide-in {
-      animation: slide-in 0.4s ease-out;
+    // 🔹 Crear contenedor de toasts (si no existe)
+    let toastContainer = document.getElementById("toast-container");
+    if (!toastContainer) {
+      toastContainer = document.createElement("div");
+      toastContainer.id = "toast-container";
+      toastContainer.className = "fixed top-5 right-5 space-y-3 z-50";
+      document.body.appendChild(toastContainer);
     }
 
-    /* Spinner */
-    .spinner {
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top: 3px solid white;
-      border-radius: 50%;
-      width: 1rem;
-      height: 1rem;
-      animation: spin 0.8s linear infinite;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 0.5rem;
+    // 🔹 Función para mostrar notificaciones (toasts)
+    function showToast(message, type = "success") {
+      const colors = {
+        success: "bg-green-500",
+        error: "bg-red-500"
+      };
+
+      const toast = document.createElement("div");
+      toast.className = `${colors[type]} text-white px-6 py-3 rounded-xl shadow-lg animate-slide-in`;
+      toast.textContent = message;
+
+      toastContainer.appendChild(toast);
+
+      // Ocultar automáticamente
+      setTimeout(() => {
+        toast.classList.add("opacity-0", "translate-x-5");
+        setTimeout(() => toast.remove(), 500);
+      }, 4000);
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  `;
-  document.head.appendChild(style);
+    // 🔹 Agregar estilos para animaciones y spinner
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes slide-in {
+        from { opacity: 0; transform: translateX(2rem); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-slide-in {
+        animation: slide-in 0.4s ease-out;
+      }
 
-  // 🔹 Envío del formulario
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
+      /* Spinner */
+      .spinner {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        animation: spin 0.8s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+      }
 
-    const button = form.querySelector("button[type='submit']");
-    const originalHTML = button.innerHTML;
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
 
-    // Mostrar spinner mientras se envía
-    button.innerHTML = `<span class="spinner"></span> Enviando...`;
-    button.disabled = true;
+    // 🔹 Envío del formulario
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    emailjs.sendForm("service_68oymju", "template_9hpw6eg", this)
-      .then(() => {
-        showToast("✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        showToast("❌ Ocurrió un error al enviar el mensaje. Intenta nuevamente.", "error");
-      })
-      .finally(() => {
-        // Restaurar botón
-        button.innerHTML = originalHTML;
-        button.disabled = false;
-      });
-  });
-</script>
+      const button = form.querySelector("button[type='submit']");
+      const originalHTML = button.innerHTML;
+
+      // Mostrar spinner mientras se envía
+      button.innerHTML = `<span class="spinner"></span> Enviando...`;
+      button.disabled = true;
+
+      // Extraer datos del formulario
+      const formData = new FormData(form);
+      const nombre = formData.get("user_name");
+      const email = formData.get("user_email");
+
+      // 1️⃣ Enviar mensaje a ti (destinatario principal)
+      emailjs.sendForm("service_68oymju", "template_9hpw6eg", this)
+        .then(() => {
+          showToast("✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+          form.reset();
+
+          // 2️⃣ Enviar respuesta automática al cliente
+          return emailjs.send("template_qvop3od", "template_respuesta", {
+            user_name: nombre,
+            user_email: email
+          });
+        })
+        .then(() => {
+          console.log("Respuesta automática enviada correctamente al cliente.");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          showToast("❌ Ocurrió un error al enviar el mensaje. Intenta nuevamente.", "error");
+        })
+        .finally(() => {
+          // Restaurar botón
+          button.innerHTML = originalHTML;
+          button.disabled = false;
+        });
+    });
+  </script>
 
 </body>
 </html>
