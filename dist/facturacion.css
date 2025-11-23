@@ -1563,15 +1563,20 @@ body{
   .md\:p-10{
     padding: 2.5rem;
   }
-  .md\:p-12{
-    padding: 3rem;
-  }
   .md\:p-4{
     padding: 1rem;
+  }
+  .md\:px-10{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
   .md\:px-12{
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+  .md\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   .md\:text-left{
     text-align: left;
